@@ -1,7 +1,13 @@
 #!/bin/sh
 
-c_f="$PWD/ClientFiles_C"
-emulator_f="$PWD/EmulatorFiles"
+c_f="/usr/local/boson/include/ClientFiles_C"
+emulator_f="/usr/local/boson/include/EmulatorFiles"
+
+sudo mkdir -p /usr/local/boson/include
+sudo cp -R ClientFiles_C /usr/local/boson/include
+sudo cp -R EmulatorFiles /usr/local/boson/include
+sudo cp boson-config.cmake /usr/local/boson/
+sudo cp boson-config-version.cmake /usr/local/boson/
 
 cd $c_f
 sudo mkdir -p /usr/local/boson/client

@@ -23,7 +23,7 @@ extern void byteToUINT_32Array(const uint8_t*inBuff, uint32_t *outVal,uint16_t l
 extern void byteToFLOATArray(const uint8_t*inBuff, float *outVal,uint16_t length);
 extern void byteToDOUBLEArray(const uint8_t*inBuff, double *outVal,uint16_t length);
 
-extern void BOOLToByte(const _Bool inVal, const uint8_t *outBuff); 
+extern void BOOLToByte(const _Bool inVal, const uint8_t *outBuff);
 extern void CHARToByte(const int8_t inVal, const uint8_t *outBuff );
 extern void UCHARToByte(const uint8_t inVal, const uint8_t *outBuff);
 extern void INT_16ToByte(const int16_t inVal, const uint8_t *outBuff);
@@ -33,7 +33,7 @@ extern void UINT_32ToByte(const uint32_t inVal, const uint8_t *outBuff);
 extern void FLOATToByte(const float inVal, const uint8_t *outBuff);
 extern void DOUBLEToByte(const double inVal, const uint8_t *outBuff);
 
-extern void BOOLArrayToByte(const _Bool *inVal, uint16_t length, const uint8_t *outBuff); 
+extern void BOOLArrayToByte(const _Bool *inVal, uint16_t length, const uint8_t *outBuff);
 extern void CHARArrayToByte(const int8_t *inVal, uint16_t length, const uint8_t *outBuff );
 extern void UCHARArrayToByte(const uint8_t *inVal, uint16_t length, const uint8_t *outBuff);
 extern void INT_16ArrayToByte(const int16_t *inVal, uint16_t length, const uint8_t *outBuff);
