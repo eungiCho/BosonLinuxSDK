@@ -17,7 +17,7 @@ ifeq ($(OSNAME),Windows_NT)
 	target = UART_HalfDuplex64.dll
 else ifeq ($(OSNAME),Linux)
 	RM=rm -f
-	target =  UART_HalfDuplex64.so
+	target =  UART_HalfDuplex32.so
 else
 #probably cygwin
 	RM=rm -f
@@ -31,7 +31,7 @@ UART_HalfDuplex32.dll: $(ALLOBJ32)
 	gcc $(WARNINGS) -static-libgcc -shared -o $@ $^ 
 
 UART_HalfDuplex64.dll: $(ALLOBJ64) 
-	tcc -v -shared -m64 -o $@ $^ 
+	tcc -v -shared -o $@ $^
 
 %_32.o: %.c  $(ALLDEPS)
 	gcc $(WARNINGS) -c -o $@ $< $(CFLAGS)
@@ -40,19 +40,19 @@ UART_HalfDuplex64.dll: $(ALLOBJ64)
 	tcc -v -c -o $@ $< $(CFLAGS)
 
 %_Linux32.o: %.c  $(ALLDEPS)
-	gcc -g -fPIC $(WARNINGS) -shared -m32 -c -o $@ $< $(CFLAGS)
+	gcc -g -fPIC $(WARNINGS) -shared -c -o /usr/local/boson/emulator/$@ $< $(CFLAGS)
 
 %_Linux64.o: %.c  $(ALLDEPS)
-	gcc -g -fPIC $(WARNINGS) -shared -m64 -c -o $@ $< $(CFLAGS)
+	gcc -g -fPIC $(WARNINGS) -shared -c -o $@ $< $(CFLAGS)
 
 rs232_Linux64.o: rs232.c $(ALLDEPS)
-	gcc -g -fPIC $(WARNINGS) -shared -m64 -c -o $@ $< $(CFLAGS) -Derror=weird_name_to_resolve_name_conflict_error
+	gcc -g -fPIC $(WARNINGS) -shared -c -o $@ $< $(CFLAGS) -Derror=weird_name_to_resolve_name_conflict_error
 
 UART_HalfDuplex32.so: $(ALLOBJ32_LINUX) 
-	gcc -g -fPIC $(WARNINGS) -shared -m32 -o $@ $^ 
+	gcc -g -fPIC $(WARNINGS) -shared -o /usr/local/boson/lib/$@ /usr/local/boson/emulator/flirCRC_Linux32.o /usr/local/boson/emulator/rs232_Linux32.o /usr/local/boson/emulator/HostBinaryProtocol_Linux32.o /usr/local/boson/emulator/flirChannels_Linux32.o
 
 UART_HalfDuplex64.so: $(ALLOBJ64_LINUX) 
-	gcc -g -fPIC $(WARNINGS) -shared -m64 -o $@ $^ 
+	gcc -g -fPIC $(WARNINGS) -shared -o $@ $^
 
 .PHONY: clean
 clean:
