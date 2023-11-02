@@ -25,6 +25,10 @@
 #include "FunctionCodes.h"
 #include "Client_Dispatcher.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 // Begin Module: gao
 FLR_RESULT CLIENT_pkgGaoSetGainState(const FLR_ENABLE_E data);
 FLR_RESULT CLIENT_pkgGaoGetGainState(FLR_ENABLE_E *data);
@@ -457,6 +461,10 @@ FLR_RESULT CLIENT_pkgSrnrGetMaxCorrApplied(uint16_t *data);
 // Begin Module: dummy
 FLR_RESULT CLIENT_pkgDummyBadCommand();
 // End Module: dummy
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif // CLIENT_PACKAGER_H
 

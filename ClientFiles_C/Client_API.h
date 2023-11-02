@@ -31,6 +31,10 @@
 #define FLR_EXPORT
 #endif
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #define MAX_MEMORY_CHUNK  256
 FLR_EXPORT FLR_RESULT gaoSetGainState(const FLR_ENABLE_E data);
 FLR_EXPORT FLR_RESULT gaoGetGainState(FLR_ENABLE_E *data);
@@ -387,6 +391,10 @@ FLR_EXPORT FLR_RESULT srnrGetMaxCorr(uint16_t *data);
 FLR_EXPORT FLR_RESULT srnrGetThPixelApplied(uint16_t *data);
 FLR_EXPORT FLR_RESULT srnrGetMaxCorrApplied(uint16_t *data);
 FLR_EXPORT FLR_RESULT dummyBadCommand();
+
+#ifdef __cplusplus
+}
+#endif
 
 
 #endif

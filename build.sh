@@ -2,6 +2,7 @@
 
 c_f="/usr/local/boson/include/ClientFiles_C"
 emulator_f="/usr/local/boson/include/EmulatorFiles"
+examples_f="$PWD/examples"
 
 sudo mkdir -p /usr/local/boson/include
 sudo cp -R ClientFiles_C /usr/local/boson/include
@@ -25,3 +26,7 @@ sudo gcc -shared Client_API.o Client_Dispatcher.o Client_Packager.o Serializer_B
 cd $emulator_f
 sudo mkdir -p /usr/local/boson/emulator
 make
+
+sudo mkdir -p /usr/local/boson/bin
+
+sudo gcc $examples_f/example_linux.c /usr/local/boson/lib/libbosonclient.so /usr/local/boson/lib/libuarthalfduplex32.so -o /usr/local/boson/bin/example_linux.so

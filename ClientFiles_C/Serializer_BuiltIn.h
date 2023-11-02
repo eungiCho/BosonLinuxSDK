@@ -3,6 +3,14 @@
 
 #include <stdint.h>
 
+#if defined(__cplusplus)
+typedef bool _Bool;
+#endif
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 extern void byteToBOOL(const uint8_t*inBuff, _Bool *outVal);
 extern void byteToCHAR(const uint8_t*inBuff, int8_t *outVal);
 extern void byteToUCHAR(const uint8_t*inBuff, uint8_t *outVal);
@@ -42,6 +50,10 @@ extern void INT_32ArrayToByte(const int32_t *inVal, uint16_t length, const uint8
 extern void UINT_32ArrayToByte(const uint32_t *inVal, uint16_t length, const uint8_t *outBuff);
 extern void FLOATArrayToByte(const float *inVal, uint16_t length, const uint8_t *outBuff);
 extern void DOUBLEArrayToByte(const double *inVal, uint16_t length, const uint8_t *outBuff);
+
+#ifdef __cplusplus
+}
+#endif
 
 
 #endif //BOSON_BUILTIN_HANDLERS_H

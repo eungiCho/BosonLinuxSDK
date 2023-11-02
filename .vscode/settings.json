@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "stdint.h": "c",
+        "enumtypes.h": "c",
+        "client_api.h": "c",
+        "uart_connector.h": "c"
+    }
+}

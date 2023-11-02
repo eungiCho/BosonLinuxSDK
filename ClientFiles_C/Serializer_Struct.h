@@ -24,6 +24,10 @@
 #include "EnumTypes.h"
 #include "Serializer_BuiltIn.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 struct t_FLR_ROI_T {
 	uint16_t rowStart;
 	uint16_t rowStop;
@@ -159,5 +163,9 @@ typedef struct t_FLR_TESTRAMP_SETTINGS_T FLR_TESTRAMP_SETTINGS_T;
 
 void byteToFLR_TESTRAMP_SETTINGS_T(const uint8_t *inBuff, FLR_TESTRAMP_SETTINGS_T *outVal);
 void FLR_TESTRAMP_SETTINGS_TToByte(const FLR_TESTRAMP_SETTINGS_T *inVal, const uint8_t *outBuff);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif //SERIALIZER_STRUCT_H

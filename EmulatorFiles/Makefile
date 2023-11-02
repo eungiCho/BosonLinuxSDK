@@ -49,7 +49,7 @@ rs232_Linux64.o: rs232.c $(ALLDEPS)
 	gcc -g -fPIC $(WARNINGS) -shared -c -o $@ $< $(CFLAGS) -Derror=weird_name_to_resolve_name_conflict_error
 
 UART_HalfDuplex32.so: $(ALLOBJ32_LINUX) 
-	gcc -g -fPIC $(WARNINGS) -shared -o /usr/local/boson/lib/$@ /usr/local/boson/emulator/flirCRC_Linux32.o /usr/local/boson/emulator/rs232_Linux32.o /usr/local/boson/emulator/HostBinaryProtocol_Linux32.o /usr/local/boson/emulator/flirChannels_Linux32.o
+	gcc -g -fPIC $(WARNINGS) -shared /usr/local/boson/emulator/flirCRC_Linux32.o /usr/local/boson/emulator/rs232_Linux32.o /usr/local/boson/emulator/HostBinaryProtocol_Linux32.o /usr/local/boson/emulator/flirChannels_Linux32.o -o /usr/local/boson/lib/libuarthalfduplex32.so
 
 UART_HalfDuplex64.so: $(ALLOBJ64_LINUX) 
 	gcc -g -fPIC $(WARNINGS) -shared -o $@ $^

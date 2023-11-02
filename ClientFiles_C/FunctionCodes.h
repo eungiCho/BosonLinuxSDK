@@ -18,6 +18,10 @@
 #ifndef FUNCTION_CODES_H
 #define FUNCTION_CODES_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 enum _functionCodes {
 	MAXFUNCCODE = 0xFFFFFFFF,
 	// Module gao
@@ -403,5 +407,9 @@ enum _functionCodes {
 	DUMMY_BADCOMMAND                   = 3735928559, // 0xDEADBEEF
 };
 typedef enum _functionCodes FLR_FUNCTION;
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif // FUNCTION_CODES_H

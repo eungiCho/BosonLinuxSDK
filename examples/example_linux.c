@@ -3,22 +3,22 @@
 // Date: April 12, 2018
 // Written by: Jeff Imamura
 // Revision on: May 31, 2018 by William Chen
-// 
+//
 // For more information, look at the Boson SDK Documentation
 // https://www.flir.com/support/products/boson#Resources
 // --------------------------------------------------------- //
 
 #include <stdio.h>
 #include <stdint.h>
-#include "Client_API.h"
-#include "EnumTypes.h"
-#include "UART_Connector.h"
+#include "/usr/local/boson/include/ClientFiles_C/Client_API.h"
+#include "/usr/local/boson/include/ClientFiles_C/EnumTypes.h"
+#include "/usr/local/boson/include/ClientFiles_C/UART_Connector.h"
 
 int main()
 {
 	uint32_t idx;
-	
-	// Step 1: Initialize the Camera 
+
+	// Step 1: Initialize the Camera
 	// Port 24 corresponds to -- /dev/ttyACM0
 	// Be sure to add permissions on that port to be bound
 	// sudo chmod a+rwx /dev/ttyACM0
@@ -71,7 +71,7 @@ int main()
 	}
 	printf("0x%08X\n", result);
 	printf("SUCCESS\n\n");
-	
+
 	// Step 4: Get Camera Software Version
 	uint32_t major, minor, patch;
 	printf("SoftwareRev: ");
@@ -111,7 +111,7 @@ int main()
 		}
 	}
 	printf("\nSUCCESS\n\n");
-	
+
 	// Step 6: Read data from Camera Flash
 	uint8_t data[256];
 	printf("Capture Data[0:255]: ");
@@ -192,11 +192,11 @@ int main()
 	// }
 	// printf("0x%08X \n", result);
 	// printf("SUCCESS\n\n");
-	
+
 	printf("Closing...\n");
 	Close();
 	return 0;
-	
+
 	// Example purposes only
 	// It's not a good idea to write/erase calibration maps
 	// but this demonstrates read/write/erase of Camera Flash
@@ -221,7 +221,7 @@ int main()
 		printf("  %02X",flashdata[idx]);
 	}
 	printf("\n");
-	
+
 	uint8_t writedata[64];
 	for (idx=0; idx<64; idx++)
 	{
@@ -236,7 +236,7 @@ int main()
 		return 1;
 	}
 	printf("success.\n");
-	
+
 	printf("\n");
 	printf("Confirm Flash Data[0:64]: ");
 	//       memReadFlash(enum, index, offset, num_bytes, empty_data_buffer);
@@ -254,7 +254,7 @@ int main()
 		printf("  %02X",flashdata[idx]);
 	}
 	printf("\n");
-	
+
 	printf("\n");
 	printf("Erase Flash: ");
 	//       memEraseFlash(enum, index);

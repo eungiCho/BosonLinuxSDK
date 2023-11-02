@@ -24,7 +24,15 @@
 #include "FunctionCodes.h"
 #include "UART_Connector.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 FLR_RESULT CLIENT_dispatcher(uint32_t seqNum, FLR_FUNCTION fnID, const uint8_t *sendData, const uint32_t sendBytes, const uint8_t *receiveData, uint32_t *receiveBytes);
 
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

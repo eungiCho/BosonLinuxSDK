@@ -24,11 +24,19 @@
 #define FLR_EXPORT
 #endif
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 FLR_EXPORT void ReadTimeoutSet(unsigned int timeout);
 FLR_EXPORT void SendToCamera( uint8_t channelID,  uint32_t sendBytes, uint8_t *sendData);
 FLR_EXPORT void ReadFrame( uint8_t channelID, uint32_t *receiveBytes, uint8_t *receiveData);
 FLR_EXPORT void ReadUnframed(uint32_t *receiveBytes, uint8_t *receiveData);
 FLR_EXPORT FLR_RESULT Initialize(int32_t port_num, int32_t baud_rate);
 FLR_EXPORT void Close(void);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif //UART_CONNECTOR_H

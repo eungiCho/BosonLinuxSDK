@@ -207,14 +207,13 @@ http://man7.org/linux/man-pages/man3/termios.3.html
     perror("Another process has locked the comport.");
     return(1);
   }
-
-  error = tcgetattr(Cport[comport_number], old_port_settings + comport_number);
-  if(error==-1)
-  {
-    close(Cport[comport_number]);
-    perror("unable to read portsettings ");
-    return(1);
-  }
+  // error = tcgetattr(Cport[comport_number], old_port_settings + comport_number);
+  // if(error==-1)
+  // {
+  //   close(Cport[comport_number]);
+  //   perror("unable to read portsettings ");
+  //   return(1);
+  // }
   memset(&new_port_settings, 0, sizeof(new_port_settings));  /* clear the new struct */
 
   new_port_settings.c_cflag = cbits | cpar | bstop | CLOCAL | CREAD;
@@ -227,13 +226,13 @@ http://man7.org/linux/man-pages/man3/termios.3.html
   cfsetispeed(&new_port_settings, baudr);
   cfsetospeed(&new_port_settings, baudr);
 
-  error = tcsetattr(Cport[comport_number], TCSANOW, &new_port_settings);
-  if(error==-1)
-  {
-    close(Cport[comport_number]);
-    perror("unable to adjust portsettings ");
-    return(1);
-  }
+  // error = tcsetattr(Cport[comport_number], TCSANOW, &new_port_settings);
+  // if(error==-1)
+  // {
+  //   close(Cport[comport_number]);
+  //   perror("unable to adjust portsettings ");
+  //   return(1);
+  // }
 
   if(ioctl(Cport[comport_number], TIOCMGET, &status) == -1)
   {

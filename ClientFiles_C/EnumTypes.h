@@ -22,6 +22,10 @@
 
 #include <stdint.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 
 enum e_FLR_ENABLE_E {
 	FLR_DISABLE = (int32_t) 0,
@@ -326,5 +330,9 @@ enum e_FLR_SYSTEMSYMBOLS_STATE_E {
 	FLR_SYSTEMSYMBOLS_STATE_LAST = (int32_t) 2,
 };
 typedef enum e_FLR_SYSTEMSYMBOLS_STATE_E FLR_SYSTEMSYMBOLS_STATE_E;
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif //ENUM_TYPES_H

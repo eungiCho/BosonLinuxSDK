@@ -18,6 +18,10 @@
 #ifndef FLR_RESULT_CODES_H
 #define FLR_RESULT_CODES_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 enum _returnCodes {
 	MAX_ERR_CODE = 0xFFFFFFFF, // 65535
 	
@@ -81,5 +85,9 @@ enum _returnCodes {
 	R_SYM_INVALID_POSITION_ERROR             = 769U, // 0x00000301
 };
 typedef enum _returnCodes FLR_RESULT;
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif
